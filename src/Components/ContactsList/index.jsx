@@ -1,7 +1,7 @@
+import {useContext} from "react";
 import ContactsListItem from "../ContactsListItem";
 import {ContactsListStyles} from "./styles";
 import {MyContext} from "../../Contexts/context";
-import {useContext} from "react";
 
 
 function ContactsList() {
