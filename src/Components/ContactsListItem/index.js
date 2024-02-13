@@ -1,16 +1,23 @@
 import MyImage from '../../images/logo.jpg';
 import {
-    ContactInfo, ContactsEditWrapper,
+    ContactInfo,
+    ContactsEditWrapper,
     ContactsListImage,
     ContactsListStyles,
     Container,
-    ContainerWrapper, EditButton,
+    ContainerWrapper,
+    EditButton,
     ExitButton
 } from "./styles";
+import React from 'react';
+import {useMyContext} from "../../Contexts/context";
 
-function ContactsListItem({ title,contactInfo }) {
-    const handleOpen = () =>{
-        console.log("sscs")
+
+function ContactsListItem({item}) {
+    const {setElement} = useMyContext();
+
+    const handleOpen = () => {
+        setElement(item);
     };
 
     return (
@@ -18,11 +25,11 @@ function ContactsListItem({ title,contactInfo }) {
             <ContactsListImage src={MyImage} alt="img"/>
             <Container>
                 <ContainerWrapper>
-                    <span>{title}</span>
+                    <span>{item.title}</span>
                     <ExitButton>X</ExitButton>
                 </ContainerWrapper>
                 <ContactsEditWrapper>
-                    <ContactInfo>{contactInfo}</ContactInfo>
+                    <ContactInfo>{item.contactInfo}</ContactInfo>
                     <EditButton>Edit</EditButton>
                 </ContactsEditWrapper>
             </Container>

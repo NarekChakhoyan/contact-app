@@ -6,8 +6,11 @@ import {
     ContactInfoStyles,
     ContactInfoText
 } from "./styles";
+import {useMyContext} from "../../Contexts/context";
 
 function ContactInfo() {
+    const { element } = useMyContext();
+
     return (<ContactInfoStyles>
         <ContactInfoText><span>Employee</span></ContactInfoText>
         <ContactInfoConteiner>
@@ -15,26 +18,26 @@ function ContactInfo() {
                 <ContactInfoFirstDiv>
                     <ContactInfoImage src={MyImage} alt="img"/>
                     <div>
-                        <p>Hopar</p>
-                        <h4>Han</h4>
+                        <p>{element.title}</p>
+                        <h4>{element.contactInfo}</h4>
                     </div>
                 </ContactInfoFirstDiv>
             </div>
             <ContactInfoSecondDiv>
-                <p>Call Office</p>
-                <h5>781-000-0005</h5>
+                <p>CallOffice</p>
+                <h5>{element.CallOffice}</h5>
             </ContactInfoSecondDiv>
             <ContactInfoSecondDiv>
                 <p>Call Mobile</p>
-                <h5>617-000-0005</h5>
+                <h5>{element.CallMobile}</h5>
             </ContactInfoSecondDiv>
             <ContactInfoSecondDiv>
                 <p>SMS</p>
-                <h5>781-000-0005</h5>
+                <h5>{element.SMS}</h5>
             </ContactInfoSecondDiv>
             <ContactInfoSecondDiv>
                 <p>Email</p>
-                <h5>rmoore@fakemail.com</h5>
+                <h5>{element.Email}</h5>
             </ContactInfoSecondDiv>
         </ContactInfoConteiner>
     </ContactInfoStyles>);

@@ -1,20 +1,15 @@
 import ContactsListItem from "../ContactsListItem";
 import {ContactsListStyles} from "./styles";
+import {MyContext} from "../../Contexts/context";
+import {useContext} from "react";
 
-const data = [{
-    // mock data
-    title: 'Hopar', imageSrc: '', contactInfo: 'ceo', id: 1
-}, {
-    title: 'Morqur', imageSrc: '', contactInfo: 'bank', id: 2
-}, {
-    title: 'Qeri', imageSrc: '', contactInfo: 'shenq', id: 3
-}]
 
 function ContactsList() {
+    const { data } = useContext(MyContext);
 
     return (<ContactsListStyles>
-            {data.map(item => <ContactsListItem key={item.id} {...item}/>)}
-        </ContactsListStyles>);
+        {data?.length && data.map(item => <ContactsListItem key={item.id} item={item}/>)}
+    </ContactsListStyles>);
 }
 
 export default ContactsList;
