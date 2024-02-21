@@ -5,10 +5,10 @@ import {MyContext} from "../../Contexts/context";
 
 
 function ContactsList() {
-    const { data } = useContext(MyContext);
+    const {data} = useContext(MyContext);
 
     return (<ContactsListStyles>
-        {data?.length && data.map(item => <ContactsListItem key={item.id} item={item}/>)}
+        {data?.length && data.map(item => <ContactsListItem key={item.id} item={item} />)}
     </ContactsListStyles>);
 }
 
